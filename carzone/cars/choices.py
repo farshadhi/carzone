@@ -90,3 +90,8 @@ for y in range(2000, (datetime.now().year+1)):
         ('FOR RENT', 'FOR RENT'),
         ('FEATURED', 'FEATURED'),
     )
+
+    transmission_choices = (
+        ('Automatic', 'Automatic'),
+        ('Manual', 'Manual'),
+    )

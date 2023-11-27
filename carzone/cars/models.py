@@ -1,5 +1,5 @@
 from django.db import models
-from .choices import state_choices, year_choices, features_choices, door_choices, status_choices
+from .choices import state_choices, year_choices, features_choices, door_choices, status_choices, transmission_choices
 from datetime import datetime
 from ckeditor.fields import RichTextField
 from multiselectfield import MultiSelectField
@@ -24,7 +24,7 @@ class Car(models.Model):
     photo_5 = models.ImageField(upload_to="photos/%Y/%m/%d", blank=True)
     features = MultiSelectField(choices=features_choices, max_length=200)
     body_style = models.CharField(max_length=100)
-    transition = models.CharField(max_length=100)
+    transition = models.CharField(choices=transmission_choices)
     engine = models.CharField(max_length=100, blank=True)
     interior = models.CharField(max_length=100)
     doors = models.CharField(choices=door_choices)
