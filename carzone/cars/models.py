@@ -3,6 +3,7 @@ from .choices import state_choices, year_choices, features_choices, door_choices
 from datetime import datetime
 from ckeditor.fields import RichTextField
 from multiselectfield import MultiSelectField
+from pages.models import Team
 
 class Car(models.Model):
     car_title = models.CharField(max_length=100)
@@ -36,6 +37,8 @@ class Car(models.Model):
     no_of_owners = models.CharField(max_length=100)
     is_featured = models.BooleanField(default=False)
     created_date = models.DateTimeField(default=datetime.now, blank=True)
+    team_members = models.ForeignKey(Team, on_delete=models.DO_NOTHING)
+
 
     def __str__(self):
         return self.car_title

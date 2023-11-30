@@ -95,3 +95,11 @@ for y in range(2000, (datetime.now().year+1)):
         ('Automatic', 'Automatic'),
         ('Manual', 'Manual'),
     )
+
+
+inquiry_choices = {
+    "I'm interested in this": "I'm interested in this",
+    "I'd like to know your best price for this": "I'd like to know your best price for this",
+    "I'd like to test drive this": "I'd like to test drive this",
+    "I'd like a history report for this": "I'd like a history report for this",
+}

@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Car
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from cars.choices import inquiry_choices
 
 def cars(request):
     cars = Car.objects.order_by('-created_date')
-    paginator = Paginator(cars, 1)
+    paginator = Paginator(cars, 3)
     page = request.GET.get('page')
     paged_cars = paginator.get_page(page)
 
@@ -26,8 +27,10 @@ def cars(request):
 
 def car_details(request, id):
     single_car = get_object_or_404(Car, pk=id)
+
     context = {
-        'single_car': single_car
+        'single_car': single_car,
+        'inquiry_choices': inquiry_choices,
     }
     return render(request, 'cars/car_details.html', context)
 
